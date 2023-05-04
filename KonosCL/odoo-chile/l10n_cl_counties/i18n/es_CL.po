@@ -1,0 +1,141 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cl_counties
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211018\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-20 15:40+0000\n"
+"PO-Revision-Date: 2021-10-20 15:40+0000\n"
+"Last-Translator: Alexander Olivares <aolivares@konos.cl>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_country_state__child_ids
+msgid "Childs"
+msgstr "Hijos"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_country_state__child_ids
+msgid "Childs states"
+msgstr "Estados hijos"
+
+#. module: l10n_cl_counties
+#: model:ir.model,name:l10n_cl_counties.model_res_city
+msgid "City"
+msgstr "Ciudad"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_city__code
+msgid "City code"
+msgstr "Código de Ciudad"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_city__type
+msgid "City type"
+msgstr "Tipo de ciudad"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_city__code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_company__city_id
+#: model_terms:ir.ui.view,arch_db:l10n_cl_counties.view_company_form
+#: model_terms:ir.ui.view,arch_db:l10n_cl_counties.view_partner_form
+msgid "Commune"
+msgstr "Comuna"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_company__city_id
+msgid "Commune of the company"
+msgstr "Comuna de la compañía"
+
+#. module: l10n_cl_counties
+#: model:ir.model,name:l10n_cl_counties.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_country_state__complete_name
+msgid "Complete Name"
+msgstr "Nombre completo"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_country_state__complete_name
+msgid "Complete name for the state"
+msgstr "Nombre completo del estado"
+
+#. module: l10n_cl_counties
+#: model:ir.model,name:l10n_cl_counties.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_cl_counties
+#: model:ir.model,name:l10n_cl_counties.model_res_country_state
+msgid "Country state"
+msgstr "Provincia"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields.selection,name:l10n_cl_counties.selection__res_city__type__normal
+#: model:ir.model.fields.selection,name:l10n_cl_counties.selection__res_country_state__type__normal
+msgid "Normal"
+msgstr "Normal"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_country_state__parent_id
+msgid "Parent"
+msgstr "Padre"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_country_state__parent_id
+msgid "Parent state"
+msgstr "Provincia padre"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_city__l10n_cl_sii_regional_office
+msgid "Regional Office associated to this city"
+msgstr "Oficina regional asociada a esta ciudad"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_city__l10n_cl_sii_regional_office
+msgid "SII Regional Office"
+msgstr "Oficina Regional del SII"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_country_state__code
+msgid "State Code"
+msgstr "Código de Provincia"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_country_state__code
+msgid "State code"
+msgstr "Código de Provincia"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,help:l10n_cl_counties.field_res_country_state__type
+msgid "State type"
+msgstr "Tipo de Provincia"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_city__type
+#: model:ir.model.fields,field_description:l10n_cl_counties.field_res_country_state__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_cl_counties
+#: model:ir.model,name:l10n_cl_counties.model_l10n_cl_counties_mixin
+msgid "Useful methods for addresses"
+msgstr "Métodos útiles para direcciones"
+
+#. module: l10n_cl_counties
+#: model:ir.model.fields.selection,name:l10n_cl_counties.selection__res_city__type__view
+#: model:ir.model.fields.selection,name:l10n_cl_counties.selection__res_country_state__type__view
+msgid "View"
+msgstr "Vista"
