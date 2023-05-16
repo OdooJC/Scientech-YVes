@@ -1,0 +1,652 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bi_sale_loyalty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-30 12:49+0000\n"
+"PO-Revision-Date: 2021-03-30 12:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.res_config_settings_loaylty_view_form_inerit
+msgid ""
+"<b style=\"color: black;margin-left: 10px;\"> \n"
+"\t\t\t\t\t\t\t\t\t\t<span>Amount </span>\n"
+"\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.res_config_settings_loaylty_view_form_inerit
+msgid ""
+"<b style=\"color: black;margin-right: 10px;\"> \n"
+"\t\t\t\t\t\t\t\t\t\t<span>1 Point = </span>\n"
+"\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Amount</b>"
+msgstr "<b> المبلغ </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+msgid "<b>Customers</b>"
+msgstr "<b> العملاء </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Date</b>"
+msgstr "<b> التاريخ </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>End</b>"
+msgstr "<b> نهاية </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Entry</b>"
+msgstr "<b> دخول </ b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Initial</b>"
+msgstr "<b> مبدئي </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Partner Filters</b>"
+msgstr "<b> مرشحات الشريك </ b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Points</b>"
+msgstr "<b> النقاط </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Product Gift Filter</b>"
+msgstr "<b> فلتر هدايا المنتج </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Product</b>"
+msgstr "<b> المنتج </ b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Status</b>"
+msgstr "<b> الحالة </ b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<b>Total</b>"
+msgstr "<b> الإجمالي </b>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid ""
+"<br/>\n"
+"\t\t\t\t\t\t<span style=\"text-align:right;margin-left:80%;margin-bottom:5px;\">\n"
+"\t\t\t\t\t\t\tRECEIVER\n"
+"\t\t\t\t\t\t</span>\n"
+"\t\t\t\t\t\t<span style=\"text-align:right;margin-left:80%;\">\n"
+"\t\t\t\t\t\t\t(                    )\n"
+"\t\t\t\t\t\t</span>"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.res_config_settings_loaylty_view_form_inerit
+msgid "<span class=\"o_form_label\">Loaylty Point Calculation</span>"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<span style=\"margin-left:50%;margin-bottom:10px;\"><b>Points:</b></span>"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<span><b>Customer:</b></span>"
+msgstr "<span><b>عميل:</b></span>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+msgid "<span><b>Report Date </b> </span>"
+msgstr "<span> <b> تاريخ التقرير </ b> </span>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "<span><b>Report Date time </b> </span>"
+msgstr "<span> <b> وقت تاريخ التقرير </ b> </span>"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "<span>Notes:</span>"
+msgstr "<span> ملاحظات: </ span>"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__customer_points_report_wizard__status__all
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__history_report_wizard__status__all
+msgid "All"
+msgstr "الجميع"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__payment_amount
+msgid "Amount"
+msgstr "كمية"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__customer_points_report_wizard__status__cancel
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__history_report_wizard__status__cancel
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__loyalty_history__transaction_type__cancel
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.customer_point_summary_wizard
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.history_summary_wizard
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.wizard_redeem_view
+msgid "Cancel"
+msgstr "يلغي"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_config_settings__year_end_Date
+msgid "Closing Year Date"
+msgstr "تاريخ سنة الإغلاق"
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: bi_sale_loyalty
+#: model:ir.ui.menu,name:bi_sale_loyalty.loyalty_config_settings_menu
+msgid "Configuration"
+msgstr "تعديل"
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__create_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__create_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__create_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__create_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_reset_points__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__create_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__create_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__create_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__create_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_reset_points__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_partner__current_yr_loyalty_points
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_users__current_yr_loyalty_points
+msgid "Current Loyalty Points"
+msgstr "نقاط الولاء الحالية"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__partner_id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__partner_id
+msgid "Customer"
+msgstr "عميل"
+
+#. module: bi_sale_loyalty
+#: model:ir.actions.act_window,name:bi_sale_loyalty.action_customer_point_report_wiz
+#: model:ir.actions.report,name:bi_sale_loyalty.action_customer_points_report
+#: model:ir.ui.menu,name:bi_sale_loyalty.menu_customer_point_report
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.customer_point_summary_wizard
+msgid "Customer Points Report"
+msgstr "تقرير نقاط العميل"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_customer_points_history
+msgid "Customer Points Summary"
+msgstr "ملخص نقاط العميل"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__customer_ids
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__customer_ids
+msgid "Customers"
+msgstr "عملاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__date
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "Date:"
+msgstr "تاريخ:"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__delivery_order_id
+msgid "Delivery Order"
+msgstr "أمر التسليم"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__display_name
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__display_name
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__display_name
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__display_name
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_customer_points_history__display_name
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_loyalty_history__display_name
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_redeem_receipt__display_name
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_reset_points__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__end_dt
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__end_dt
+msgid "End Date"
+msgstr "End Date"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__product_id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_product_product__is_gift_product
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_product_template__is_gift_product
+msgid "Gift Product"
+msgstr "منتج هدية"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_config_settings__grace_period_Date
+msgid "Grace Period Date"
+msgstr "تاريخ فترة السماح"
+
+#. module: bi_sale_loyalty
+#: model:ir.actions.act_window,name:bi_sale_loyalty.action_history_report_wiz
+#: model:ir.actions.report,name:bi_sale_loyalty.action_history_report
+#: model:ir.ui.menu,name:bi_sale_loyalty.menu_history_report
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.history_summary_wizard
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_loyalty_history
+msgid "History Report"
+msgstr "تقرير التاريخ"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_customer_points_history__id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_loyalty_history__id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_redeem_receipt__id
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_reset_points__id
+msgid "ID"
+msgstr "هوية شخصية"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__is_expired
+msgid "Is Expired"
+msgstr "منتهي الصلاحية"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__is_redeemed
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_sale_order__is_redeemed
+msgid "Is Redeemed"
+msgstr "مخلص"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__is_send_cancel
+msgid "Is send cancel"
+msgstr "يتم إرسال إلغاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_partner__last_yr_loyalty_points
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_users__last_yr_loyalty_points
+msgid "Last Loyalty Points"
+msgstr "نقاط الولاء الأخيرة"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard____last_update
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard____last_update
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history____last_update
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard____last_update
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_customer_points_history____last_update
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_loyalty_history____last_update
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_report_bi_sale_loyalty_report_redeem_receipt____last_update
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_reset_points____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__write_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__write_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__write_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__write_uid
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_reset_points__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__write_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__write_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__write_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__write_date
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_reset_points__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: bi_sale_loyalty
+#: model:ir.actions.act_window,name:bi_sale_loyalty.action_loyalty_history
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_partner__loyalty_history_ids
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_users__loyalty_history_ids
+#: model:ir.ui.menu,name:bi_sale_loyalty.menu_loyalty_history
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.loyalty_history_form_view
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.loyalty_history_tree_view
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.view_res_partner_loyalty_form
+msgid "Loyalty History"
+msgstr "تاريخ الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.ui.menu,name:bi_sale_loyalty.main_loyalty_history
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.res_config_settings_loaylty_view_form_inerit
+msgid "Loyalty Management"
+msgstr "إدارة الولاء"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.wizard_redeem_view
+msgid "Loyalty Point Redeem"
+msgstr "استبدال نقاط الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__points
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_partner__loyalty_points
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_users__loyalty_points
+msgid "Loyalty Points"
+msgstr "نقاط الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__loyalty_points
+msgid "Loyalty Points Have"
+msgstr "نقاط الولاء لها"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__after_redeem
+msgid "Loyalty Points Left"
+msgstr "نقاط الولاء المتبقية"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__loyalty_used
+msgid "Loyalty Points Used"
+msgstr "نقاط الولاء المستخدمة"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.res_config_settings_loaylty_view_form_inerit
+msgid "Loyalty Settings"
+msgstr "إعدادات الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__loyalty_history_id
+msgid "Loyalty history"
+msgstr "تاريخ الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__extra_note
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__extra_note
+msgid "Note"
+msgstr "ملحوظة"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_product_product__num_of_points
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_product_template__num_of_points
+msgid "Number of Points"
+msgstr "عدد النقاط"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__payment_id
+msgid "Payment Entry"
+msgstr "إدخال الدفع"
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_account_payment
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: bi_sale_loyalty
+#: code:addons/bi_sale_loyalty/wizard/loyalty_point_wiz.py:0
+#, python-format
+msgid ""
+"Please configure redeem point amount under Loyalty "
+"Management->configuration->settings"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "Point Balance:"
+msgstr "رصيد النقاط:"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_config_settings__point_cal
+msgid "Point Value"
+msgstr "قيمة النقطة"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "Points:"
+msgstr "نقاط:"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.customer_point_summary_wizard
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.history_summary_wizard
+msgid "Print"
+msgstr "مطبعة"
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "Product:"
+msgstr "المنتج:"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__product_ids
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__product_ids
+msgid "Products"
+msgstr "منتجات"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "REST POINT:"
+msgstr "نقطة الراحة:"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__customer_points_report_wizard__status__receive
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__history_report_wizard__status__receive
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__loyalty_history__transaction_type__receive
+msgid "Receive"
+msgstr "تسلم"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "Redeem Details"
+msgstr "استرداد التفاصيل"
+
+#. module: bi_sale_loyalty
+#: model:ir.actions.act_window,name:bi_sale_loyalty.loyalty_point_redeem_action
+msgid "Redeem Loyalty Points"
+msgstr "استبدال نقاط الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.ui.menu,name:bi_sale_loyalty.redeem_loyalty_menu
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.wizard_redeem_view
+msgid "Redeem Points"
+msgstr "استبدال النقاط"
+
+#. module: bi_sale_loyalty
+#: model:ir.actions.report,name:bi_sale_loyalty.action_redeem_receipt
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.report_redeem_receipt
+msgid "Redeem Receipt"
+msgstr "استرداد الإيصال"
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_report_bi_sale_loyalty_report_redeem_receipt
+msgid "Redeem Receipt Report"
+msgstr "استرداد تقرير الاستلام"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_sale_order__redeemed_points
+msgid "Redeemed points"
+msgstr "النقاط المستبدلة"
+
+#. module: bi_sale_loyalty
+#: model:ir.ui.menu,name:bi_sale_loyalty.menu_reports
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.res_config_settings_loaylty_view_form_inerit
+msgid "Reset Loyalty Point Configuration"
+msgstr "إعادة تعيين تكوين نقاط الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.actions.server,name:bi_sale_loyalty.loyalty_cron_ir_actions_server
+#: model:ir.cron,cron_name:bi_sale_loyalty.loyalty_cron
+#: model:ir.cron,name:bi_sale_loyalty.loyalty_cron
+msgid "Sale Loyalty"
+msgstr "ولاء البيع"
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_point_redeem_wizard__product_id
+msgid "Select Gift Product"
+msgstr "حدد منتج الهدية"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__customer_points_report_wizard__status__send
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__history_report_wizard__status__send
+#: model:ir.model.fields.selection,name:bi_sale_loyalty.selection__loyalty_history__transaction_type__send
+msgid "Send"
+msgstr "إرسال"
+
+#. module: bi_sale_loyalty
+#: model:ir.actions.act_window,name:bi_sale_loyalty.loyalty_config_settings_action
+#: model:ir.ui.menu,name:bi_sale_loyalty.loyalty_config_settings_menu_action
+msgid "Settings"
+msgstr "إعدادات"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__start_dt
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__start_dt
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_customer_points_report_wizard__status
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_history_report_wizard__status
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__transaction_type
+msgid "Status"
+msgstr "حالة"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__to_be_expired
+msgid "To be Expired"
+msgstr "على أن تنتهي صلاحيته"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_partner__total_amount
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_res_users__total_amount
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__total_payment_amount
+msgid "Total Payment Amount"
+msgstr "المبلغ الإجمالي للدفع"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__total_points
+msgid "Total Points"
+msgstr "مجمل النقاط"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__used_from_last
+msgid "Used From Last Year Points"
+msgstr "مستخدمة من نقاط العام الماضي"
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_account_payment__loyalty_used_from_last
+msgid "Used from last"
+msgstr "مستخدم من الماضي"
+
+#. module: bi_sale_loyalty
+#: code:addons/bi_sale_loyalty/wizard/loyalty_point_wiz.py:0
+#, python-format
+msgid "You can not redeem more points than you have."
+msgstr "لا يمكنك استبدال نقاط أكثر مما لديك."
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,help:bi_sale_loyalty.field_loyalty_history__transaction_type
+msgid "credit/debit loyalty transaction."
+msgstr "معاملة ولاء ائتمان / مدين."
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_customer_points_report_wizard
+msgid "customer.points.report.wizard"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_history_report_wizard
+msgid "history.report.wizard"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model:ir.model.fields,field_description:bi_sale_loyalty.field_loyalty_history__last_year_used_cancel
+msgid "last_year_used_cancel"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:bi_sale_loyalty.res_config_settings_loaylty_view_form_inerit
+msgid "loyalty points"
+msgstr "نقاط الولاء"
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_loyalty_history
+msgid "loyalty.history"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_loyalty_point_redeem_wizard
+msgid "loyalty.point.redeem.wizard"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_report_bi_sale_loyalty_report_customer_points_history
+msgid "report.bi_sale_loyalty.report_customer_points_history"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_report_bi_sale_loyalty_report_loyalty_history
+msgid "report.bi_sale_loyalty.report_loyalty_history"
+msgstr ""
+
+#. module: bi_sale_loyalty
+#: model:ir.model,name:bi_sale_loyalty.model_reset_points
+msgid "reset.points"
+msgstr ""
