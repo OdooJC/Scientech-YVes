@@ -1,0 +1,32 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_counties
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20230418\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-16 15:46+0000\n"
+"PO-Revision-Date: 2023-05-16 15:46+0000\n"
+"Last-Translator: Alexander Olivares <aolivares@konos.cl>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_counties
+#: model:ir.model.fields,field_description:crm_counties.field_crm_lead__city_id
+#: model_terms:ir.ui.view,arch_db:crm_counties.crm_lead_view_form
+msgid "Commune"
+msgstr "Comuna"
+
+#. module: crm_counties
+#: model:ir.model.fields,help:crm_counties.field_crm_lead__city_id
+msgid "Commune of the lead"
+msgstr "Comuna de la iniciativa"
+
+#. module: crm_counties
+#: model:ir.model,name:crm_counties.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Lead/Oportunidad"
