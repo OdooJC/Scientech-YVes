@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+		<record id="product_loyalty_form_view" model="ir.ui.view">
+			<field name="name">Product Loyalty Form</field>
+			<field name="model">product.template</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="product.product_template_form_view" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[@name='options']" position="inside">
+					<field name="is_gift_product"/><label for="is_gift_product"/> 
+				</xpath>
+				<xpath expr="//div[@name='pricing']" position="after">
+					<field name="num_of_points" attrs="{'invisible': [('is_gift_product', '=', False)]}"/>
+				</xpath>
+			</field>
+		</record>
+	</data>
+	
+</odoo>

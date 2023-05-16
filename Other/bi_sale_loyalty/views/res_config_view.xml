@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<odoo>
+	<record id="res_config_settings_loaylty_view_form_inerit" model="ir.ui.view">
+		<field name="name">res.config.settings.loyalty.view.form.inherit</field>
+		<field name="model">res.config.settings</field>
+		<field name="priority" eval="40"/>
+		<field name="inherit_id" ref="base.res_config_settings_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[hasclass('settings')]" position="inside">
+				<div class="app_settings_block" data-string="Loyalty Management" string="Loyalty Management" data-key="bi_sale_loyalty" groups="base.group_system">
+					<h2>Loyalty Settings</h2>
+					<div class="row mt16 o_settings_container">
+						<div class="col-12 col-lg-6 o_setting_box" id="loyalty_setting">
+							<div class="o_setting_right_pane">
+								<span class="o_form_label">Loaylty Point Calculation</span>
+								<div class="text-muted">
+									loyalty points
+								</div>
+								<div class="text-muted">
+									<b style="color: black;margin-right: 10px;"> 
+										<span>1 Point = </span>
+									</b>
+									<field name="point_cal"/>
+									<b style="color: black;margin-left: 10px;"> 
+										<span>Amount </span>
+									</b>
+								</div>
+							</div>
+						</div>
+					</div>
+					<h2>Reset Loyalty Point Configuration</h2>
+					<div class="row mt16 o_settings_container">
+						<div class="col-12 col-lg-6 o_setting_box" id="loyalty_setting">
+							<div class="o_setting_right_pane">
+									<label for="year_end_Date"/>
+									<field name="year_end_Date"/>
+									
+							</div>
+						</div>
+						<div class="col-12 col-lg-6 o_setting_box" id="loyalty_setting">
+							<div class="o_setting_right_pane">
+									<label for="grace_period_Date"/>
+									<field name="grace_period_Date"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="loyalty_config_settings_action" model="ir.actions.act_window">
+		<field name="name">Settings</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">res.config.settings</field>
+		<field name="view_mode">form</field>
+		<field name="target">inline</field>
+		<field name="context">{'module' : 'bi_sale_loyalty'}</field>
+	</record>
+
+	<menuitem id="loyalty_config_settings_menu" 
+		name="Configuration" 
+		parent="main_loyalty_history" 
+		sequence="5"
+		groups="base.group_system"/>
+
+	<menuitem id="loyalty_config_settings_menu_action" name="Settings" parent="loyalty_config_settings_menu"
+            sequence="0" action="loyalty_config_settings_action" groups="base.group_system"/>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_loyalty_history,access_loyalty_history,bi_sale_loyalty.model_loyalty_history,,1,1,1,1
+access_reset_points,access_reset_points,bi_sale_loyalty.model_reset_points,,1,1,1,1
+access_customer_points_report_wizard,access_customer_points_report_wizard,bi_sale_loyalty.model_customer_points_report_wizard,,1,1,1,1
+access_history_report_wizard,access_history_report_wizard,bi_sale_loyalty.model_history_report_wizard,,1,1,1,1
+access_loyalty_point_redeem_wizard,access_loyalty_point_redeem_wizard,bi_sale_loyalty.model_loyalty_point_redeem_wizard,,1,1,1,1
