@@ -1,0 +1,37 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* delivery_chilex
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20230517\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-31 15:26+0000\n"
+"PO-Revision-Date: 2023-05-31 15:26+0000\n"
+"Last-Translator: Alexander Olivares <aolivares@konos.cl>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: delivery_chilex
+#: model:ir.model.fields.selection,name:delivery_chilex.selection__delivery_carrier__delivery_type__chilex
+msgid "Chilexpress"
+msgstr "Chilexpress"
+
+#. module: delivery_chilex
+#: model:ir.model.fields,field_description:delivery_chilex.field_delivery_carrier__delivery_type
+msgid "Provider"
+msgstr "Proveedor"
+
+#. module: delivery_chilex
+#: model:ir.model,name:delivery_chilex.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Métodos de envío"
+
+#. module: delivery_chilex
+#: code:addons/delivery_chilex/models/delivery_chilex.py:0
+#, python-format
+msgid "This feature is not available yet."
+msgstr "Esta función aún no está disponible."
