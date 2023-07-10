@@ -16,3 +16,4 @@ class InheritProduct(models.Model):
 
 	num_of_points = fields.Integer("Number of Points")
 	is_gift_product = fields.Boolean("Gift Product")
+	is_commissionable = fields.Boolean(default="True")
