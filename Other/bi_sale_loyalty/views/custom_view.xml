@@ -12,6 +12,7 @@
 				</xpath>
 				<xpath expr="//div[@name='pricing']" position="after">
 					<field name="num_of_points" attrs="{'invisible': [('is_gift_product', '=', False)]}"/>
+					<field name="is_commissionable"/>
 				</xpath>
 			</field>
 		</record>
