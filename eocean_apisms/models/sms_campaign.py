@@ -79,7 +79,7 @@ class SMSCampaign(models.Model):
             for contact in self.contacts:
                 payload["campaign"]["registers"].append(
                     {
-                        "id": "",
+                        "id": contact.id,
                         "name": contact.name,
                         "phone": contact.x_studio_telefono_01,
                         "message": self.message,
@@ -141,17 +141,17 @@ class SMSCampaign(models.Model):
 
             for contact in self.contacts:
                 register_values = {
-                    "register_id": random.uniform(0, 99999),
+                    "id": contact.id,
+                    "register_id": contact.id,
                     "name": contact.name,
                     "phone": contact.x_studio_telefono_01,
                     "message": self.message,
                     "campaign_ids": [(4, existing_campaign.id)],
                 }
+
                 registers_to_create.append(register_values)
 
-                registers = self.env["eoceansms.sms_register"].create(
-                    registers_to_create
-                )
+            registers = self.env["eoceansms.sms_register"].create(registers_to_create)
 
             return self.env.ref("eocean_apisms.sms_campaign_action_tree").read()[0]
         else:
@@ -170,13 +170,12 @@ class SMSCampaign(models.Model):
         headers = {"Authorization": f"Bearer {connection.access_token}"}
 
         campaigns = self.env["eoceansms.sms_campaign"].search([])
-        _logger.info("Valor de campaigns: %s", campaigns)
+
         if not campaigns:
             raise UserError("No se encontraron campañas para actualizar el estado.")
 
         for campaign in campaigns:
             campaign_id = campaign.campaign_id
-            _logger.info("Valor de campaign_id: %s", campaign_id)
             if not campaign_id:
                 raise UserError("La campaña no tiene un ID asignado.")
 
@@ -186,26 +185,48 @@ class SMSCampaign(models.Model):
 
             if response.status_code == 200:
                 response_data = response.json()
-                _logger.info("Valor de response_data: %s", response_data)
                 campaign_status = response_data.get("status")
 
-                # Actualizar el estado de la campaña
                 campaign.status = campaign_status
 
                 sms_registers = self.env["eoceansms.sms_register"].search(
                     [("campaign_ids", "=", campaign.id)]
                 )
-                _logger.info("Valor de sms_registers: %s", sms_registers)
-                # Actualizar los estados de los registros asociados a la campaña
                 for sms_register in sms_registers:
-                    sms_register_data = response_data.get("campaign", {}).get(
-                        "sms_records", []
-                    )
+                    campaign_data = response_data.get("campaign", [])
+                    if campaign_data:
+                        sms_register_data = campaign_data[0].get("sms_records", [])
+                    else:
+                        sms_register_data = []
                     for record_data in sms_register_data:
-                        if record_data.get("campaign_id") == campaign.campaign_id:
-                            sms_register.status = record_data.get("estado")
-                            sms_register.contact_id = record_data.get("id")
-                            break
+                        record_external_id = record_data.get("external_id")
+                        # _logger.info("record_external_id: %s", record_external_id)
+                        if str(record_external_id) == str(sms_register.register_id):
+                            status_value = record_data.get("estado")
+                            get_fecha_envio = record_data.get("fecha envio")
+                            get_fecha_entrega = record_data.get("fecha entrega")
+                            if str(status_value) in dict(
+                                sms_register._fields["status"].selection
+                            ):
+                                sms_register.status = str(status_value)
+                                fecha_envio = record_data.get("fecha envio")
+                                sms_register.fecha_envio = (
+                                    fields.Datetime.to_datetime(fecha_envio)
+                                    if fecha_envio
+                                    else False
+                                )
+
+                                fecha_entrega = record_data.get("fecha entrega")
+                                sms_register.fecha_entrega = (
+                                    fields.Datetime.to_datetime(fecha_entrega)
+                                    if fecha_entrega
+                                    else False
+                                )
+
+                            else:
+                                raise UserError(
+                                    f"Error al obtener el estado del registro: {record_data}"
+                                )
             else:
                 raise UserError(
                     f"Error al obtener el estado de la campaña: {response.text}"
@@ -219,4 +240,3 @@ class SMSCampaign(models.Model):
             "search_default_campaign_ids": [self.id],
         }
         return action
-

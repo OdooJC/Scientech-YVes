@@ -229,6 +229,8 @@
                     <field name="phone" string="Teléfono" />
                     <field name="message" string="Mensaje" />
                     <field name="status" string="Estado" />
+                    <field name="fecha_envio" string="Fecha de Envío" />
+                    <field name="fecha_entrega" string="Fecha de Entrega" />
                     <field name="campaign_ids" invisible="1" />
                     <field name="campaign_ids" string="Campañas" widget="many2many_tags" />
                 </tree>
@@ -240,7 +242,7 @@
         <record model="ir.actions.act_window" id="sms_register_action_tree">
             <field name="name">Listado de Registros</field>
             <field name="res_model">eoceansms.sms_register</field>
-            <field name="view_mode">form,tree</field>
+            <field name="view_mode">tree</field>
             <field name="view_id" ref="sms_register_tree_view" />
         </record>
 

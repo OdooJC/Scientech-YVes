@@ -39,3 +39,6 @@ class SMSRegister(models.Model):
         string="Estado",
     )
 
+    fecha_envio = fields.Datetime(string="Fecha de envío", store=True)
+
+    fecha_entrega = fields.Datetime(string="Fecha de entrega", store=True)

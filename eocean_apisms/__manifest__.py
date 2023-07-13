@@ -10,7 +10,7 @@
         Módulo de envío en campañas de SMS usando la puerta de enlace Entel Touch Ocean.
 
     """,
-    "website": "https://app-qa.touch.entelocean.io/",
+    "website": "https://app.touch.entelocean.io/",
     "category": "SMS",
     "demo": [],
     "data": [
@@ -18,7 +18,6 @@
         "security/ir.model.access.csv",
         "views/eoceansms.xml",
     ],
-    # 'controllers': ['controllers/main.py'],
     "active": False,
     "installable": True,
     "application": True,

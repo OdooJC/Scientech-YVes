@@ -3,6 +3,7 @@ from odoo import models, api, fields, _
 from odoo.exceptions import UserError, ValidationError
 import requests
 
+
 class SMSConnection(models.Model):
     _name = "eoceansms.sms_connection"
     _description = "Entel Touch Ocean Gateway Configuration"
