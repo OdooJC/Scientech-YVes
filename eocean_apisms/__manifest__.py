@@ -15,7 +15,7 @@
     "demo": [],
     "data": [
         "views/assets.xml",
-        # "security/ir.model.access.csv",
+        "security/ir.model.access.csv",
         "views/eoceansms.xml",
     ],
     "active": False,
