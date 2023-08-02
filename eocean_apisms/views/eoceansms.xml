@@ -73,7 +73,7 @@
             </field>
         </record>
         <!-- Acciones para PASARELAS -->
-        <record model="ir.actions.act_window.view" id="sms_connection_action_tree">
+        <record model="ir.actions.act_window" id="sms_connection_action_tree">
             <field name="name">Listado de Pasarelas</field>
             <field name="res_model">eoceansms.sms_connection</field>
             <field name="view_mode">form,tree</field>
@@ -197,7 +197,7 @@
             </field>
         </record>
         <!-- Acciones para CAMPAÑAS -->
-        <record model="ir.actions.act_window.view" id="sms_campaign_action_tree">
+        <record model="ir.actions.act_window" id="sms_campaign_action_tree">
             <field name="name">Campañas SMS</field>
             <field name="res_model">eoceansms.sms_campaign</field>
             <field name="view_mode">form,tree</field>
@@ -239,7 +239,7 @@
 
 
         <!-- Acciones para Listado de Registros para una CAMPAÑA -->
-        <record model="ir.actions.act_window.view" id="sms_register_action_tree">
+        <record model="ir.actions.act_window" id="sms_register_action_tree">
             <field name="name">Listado de Registros</field>
             <field name="res_model">eoceansms.sms_register</field>
             <field name="view_mode">tree</field>
