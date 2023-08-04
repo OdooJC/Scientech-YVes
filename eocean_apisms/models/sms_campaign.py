@@ -77,14 +77,15 @@ class SMSCampaign(models.Model):
 
         if self.contacts:
             for contact in self.contacts:
-                phone_number = contact.x_studio_telefono_01 or ""
-                stripped_phone = phone_number[-9:]  # Obtener los últimos 9 dígitos
-        
+                phone_number = contact.x_studio_telefono_01
+                # Eliminar el prefijo "+56" o "56" y guardar los últimos 9 dígitos
+                cleaned_number = re.sub(r'^(\+|56)', '', phone_number)[-9:]
+                
                 payload["campaign"]["registers"].append(
                     {
                         "id": contact.id,
                         "name": contact.name,
-                        "phone": stripped_phone,
+                        "phone": cleaned_number,
                         "message": self.message,
                     }
                 )
