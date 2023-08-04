@@ -81,6 +81,7 @@ class SMSCampaign(models.Model):
                 # Eliminar el prefijo "+56", "56" y espacios, y quedarse con los últimos 9 dígitos
                 cleaned_number = phone_number.replace("+56", "").replace("56", "").replace(" ", "")[-9:]
                 
+                
                 payload["campaign"]["registers"].append(
                     {
                         "id": contact.id,
