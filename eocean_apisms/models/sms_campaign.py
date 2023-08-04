@@ -2,7 +2,7 @@
 from odoo import models, api, fields, _
 from datetime import datetime, timedelta, time
 from odoo.exceptions import UserError
-import requests, logging, random
+import requests, logging, random, re
 
 _logger = logging.getLogger(__name__)
 
