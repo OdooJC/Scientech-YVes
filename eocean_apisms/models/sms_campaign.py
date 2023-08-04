@@ -55,24 +55,13 @@ class SMSCampaign(models.Model):
             )
             self.time = (local_datetime + timedelta(hours=1)).strftime("%H:%M")
 
-    def _sanitize_phone_number(self, phone):
-        # Eliminar el prefijo "+", "56" y espacios en blanco, y obtener solo los últimos 9 dígitos
-        return re.sub(r'\+|56|\s', '', phone)[-9:]
-
-    def _get_unique_sanitized_numbers(self, contacts):
-        sanitized_numbers = set()
-        unique_contacts = self.env['res.partner']
-        
-        for contact in contacts:
-            phone_numbers = [contact.phone, contact.mobile, contact.phone_sanitized, contact.x_studio_telefono_01, contact.x_studio_telefono_02, contact.x_studio_telefono_03]
-            for phone in phone_numbers:
-                if phone:
-                    sanitized_phone = self._sanitize_phone_number(phone)
-                    if sanitized_phone and len(sanitized_phone) == 9 and sanitized_phone not in sanitized_numbers:
-                        sanitized_numbers.add(sanitized_phone)
-                        unique_contacts |= contact
-
-        return unique_contacts
+    def _sanitize_phone_number(self, number):
+        if number:
+            # Eliminar "+" y "56", y luego eliminar espacios en blanco
+            sanitized_number = number.replace("+", "").replace("56", "").replace(" ", "")
+            if len(sanitized_number) >= 9:
+                return sanitized_number[-9:]
+        return False
 
     def send_campaign(self):
         url = "https://api.touch.entelocean.io/125/api/sms-channel/send-sms"
@@ -95,21 +84,27 @@ class SMSCampaign(models.Model):
         }
 
         if self.contacts:
-            unique_contacts = self._get_unique_sanitized_numbers(self.contacts)
-            for contact in unique_contacts:
-                phone_numbers = [contact.phone, contact.mobile, contact.phone_sanitized, contact.x_studio_telefono_01, contact.x_studio_telefono_02, contact.x_studio_telefono_03]
-                for phone in phone_numbers:
-                    if phone:
-                        sanitized_phone = self._sanitize_phone_number(phone)
-                        if sanitized_phone and len(sanitized_phone) == 9:
-                            payload["campaign"]["registers"].append(
-                                {
-                                    "id": contact.id,
-                                    "name": contact.name,
-                                    "phone": sanitized_phone,
-                                    "message": self.message,
-                                }
-                            )
+            phone_set = set()  # Conjunto para rastrear números de teléfono únicos
+            for contact in self.contacts:
+                phone_numbers = [
+                    self._sanitize_phone_number(contact.phone),
+                    self._sanitize_phone_number(contact.mobile),
+                    self._sanitize_phone_number(contact.x_studio_telefono_01),
+                    self._sanitize_phone_number(contact.x_studio_telefono_02),
+                    self._sanitize_phone_number(contact.x_studio_telefono_03),
+                ]
+                
+                for number in phone_numbers:
+                    if number and number not in phone_set:  # Evitar duplicados
+                        phone_set.add(number)
+                        payload["campaign"]["registers"].append(
+                            {
+                                "id": contact.id,
+                                "name": contact.name,
+                                "phone": number,
+                                "message": self.message,
+                            }
+                        )
 
         if self.datetime:
             utc_datetime = fields.Datetime.from_string(self.datetime)
