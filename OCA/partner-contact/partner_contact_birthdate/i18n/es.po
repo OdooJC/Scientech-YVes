@@ -23,13 +23,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_partner__age
 #: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_users__age
 msgid "Age"
-msgstr ""
+msgstr "Edad"
 
 #. module: partner_contact_birthdate
 #: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_partner__birthdate_date
 #: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_users__birthdate_date
 msgid "Birthdate"
 msgstr "Fecha de nacimiento"
+
+#. module: partner_contact_birthdate
+#: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_partner__birth_month
+#: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_users__birth_month
+msgid "Mes de nacimiento""
+msgstr "Mes de nacimiento"
 
 #. module: partner_contact_birthdate
 #: model:ir.model,name:partner_contact_birthdate.model_res_partner
