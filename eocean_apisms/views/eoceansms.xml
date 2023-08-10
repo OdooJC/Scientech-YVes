@@ -146,6 +146,26 @@
                                             </tree>
                                         </field>
                                     </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Teléfono</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr t-foreach="contacts" t-as="contact">
+                                                    <td>
+                                                        <t t-esc="contact.name" />
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="contact.phone" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
