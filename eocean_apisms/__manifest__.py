@@ -22,7 +22,7 @@
     "installable": True,
     "application": True,
     "auto_install": False,
-    "images": ["static/description/banner.png"],
+    "images": ["static\src\img\icon.png"],
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

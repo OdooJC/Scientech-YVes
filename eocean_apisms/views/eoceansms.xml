@@ -93,79 +93,71 @@
                         <h1 class="text-center">Nueva Campaña SMS 📣</h1>
                     </sheet>
                     <sheet>
-                        <div class="form-group">
-                            <div class="form-group row">
-                                <label for="connection_id" class="col-sm-2 col-form-label">Seleccionar
-                                    pasarela</label>
-                                <div class="col-sm-10">
-                                    <field id="connection_id" name="connection_id"
-                                        string="Seleccionar Pasarela" select="1"
-                                        class="form-control"
-                                    />
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="connection_id">Seleccionar pasarela</label>
+                                        <field id="connection_id" name="connection_id"
+                                            string="Seleccionar Pasarela" select="1"
+                                            class="form-control"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Nombre de la campaña</label>
+                                        <field id="name" name="name" string="Nombre de la campaña"
+                                            class="form-control"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="type_action">Seleccione el tipo de campaña</label>
+                                        <field id="type_action" name="type_action"
+                                            string="Seleccionar el Tipo de campaña"
+                                            widget="selection"
+                                            class="form-control"
+                                            options="{'selection': [('1', 'Campaña Inmediata'), ('2', 'Campaña Programada')]}"
+                                        />
+                                    </div>
+                                    <div class="form-group"
+                                        attrs="{'invisible': [('type_action', '=', '1')]}">
+                                        <label for="datetime">Seleccione la fecha y hora</label>
+                                        <field id="datetime" name="datetime" widget="datetime"
+                                            string="Seleccione la fecha y hora"
+                                            attrs="{'invisible': [('type_action', '=', '1')]}"
+                                            class="form-control"
+                                            options="{'pickerOptions': {'format': 'yyyy-mm-dd HH:ii:ss', 'showTodayButton': true}}" />
+                                        <field name="date" string="Fecha" invisible="True"></field>
+                                        <field name="time" string="Hora" invisible="True"></field>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="name" class="col-sm-2 col-form-label">Nombre de la
-                                    campaña</label>
-                                <div class="col-sm-10">
-                                    <field id="name" name="name" string="Nombre de la campaña"
-                                        class="form-control"
-                                    />
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="contacts">Seleccione los contactos</label>
+                                        <field id="contacts" name="contacts" widget="many2many_tags"
+                                            string="Contactos"
+                                            options="{}" class="form-control">
+                                            <tree>
+                                                <field name="name" string="Nombre" select="1" />
+                                                <field name="phone" string="Teléfono" />
+                                            </tree>
+                                        </field>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="type_action" class="col-sm-2 col-form-label">Seleccione
-                                    el
-                                    tipo de
-                                    campaña</label>
-                                <div class="col-sm-10">
-                                    <field id="type_action" name="type_action"
-                                        string="Seleccionar el Tipo de campaña"
-                                        widget="selection"
-                                        class="form-control"
-                                        options="{'selection': [('1', 'Campaña Inmediata'), ('2', 'Campaña Programada')]}"
-                                    />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="datetime"
-                                    attrs="{'invisible': [('type_action', '=', '1')]}"
-                                    class="col-sm-2 col-form-label">Seleccione la fecha y hora</label>
-                                <div class="col-sm-10">
-                                    <field id="datetime" name="datetime" widget="datetime"
-                                        string="Seleccione la fecha y hora"
-                                        attrs="{'invisible': [('type_action', '=', '1')]}"
-                                        class="form-control"
-                                        options="{'pickerOptions': {'format': 'yyyy-mm-dd HH:ii:ss', 'showTodayButton': true}}" />
-                                    <field name="date" string="Fecha" invisible="True"></field>
-                                    <field name="time" string="Hora" invisible="True"></field>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="contacts" class="col-sm-2 col-form-label">Seleccione los
-                                    contactos</label>
-                                <div class="col-sm-10">
-                                    <field id="contacts" name="contacts" widget="many2many_tags"
-                                        string="Contactos"
-                                        options="{}" class="form-control">
-                                        <tree>
-                                            <field name="name" string="Nombre" select="1"
-                                            />
-                                            <field name="phone" string="Teléfono" />
-                                        </tree>
-                                    </field>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="message" class="col-sm-2 col-form-label">Mensaje a
-                                    enviar</label>
-                                <div class="col-sm-10">
-                                    <!-- Solo letras, números y espacios en el campo. -->
-                                    <field id="message" name="message" string="Mensaje"
-                                        attrs="{'maxlength': 160, 'pattern': '^[A-Za-z0-9\s]+$'}"
-                                        class="form-control">
-                                        <widget name="textarea" options="{'count': true}" />
-                                    </field>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="message">Mensaje a enviar</label>
+                                        <field id="message" name="message" string="Mensaje"
+                                            attrs="{'maxlength': 160, 'pattern': '^[A-Za-z0-9\s]+$'}"
+                                            class="form-control">
+                                            <widget name="textarea" options="{'count': true}" />
+                                        </field>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -179,6 +171,7 @@
                 </form>
             </field>
         </record>
+
         <!-- Listado de CAMPAÑAS -->
         <record model="ir.ui.view" id="sms_campaign_tree_view">
             <field name="name">eoceansms.sms_campaign.tree</field>
