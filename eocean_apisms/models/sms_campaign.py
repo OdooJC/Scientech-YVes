@@ -58,7 +58,9 @@ class SMSCampaign(models.Model):
     def _sanitize_phone_number(self, number):
         if number:
             # Eliminar "+" y "56", y luego eliminar espacios en blanco
-            sanitized_number = number.replace("+", "").replace("56", "").replace(" ", "")
+            sanitized_number = (
+                number.replace("+", "").replace("56", "").replace(" ", "")
+            )
             if len(sanitized_number) >= 9:
                 return sanitized_number[-9:]
         return False
@@ -93,7 +95,7 @@ class SMSCampaign(models.Model):
                     self._sanitize_phone_number(contact.x_studio_telefono_02),
                     self._sanitize_phone_number(contact.x_studio_telefono_03),
                 ]
-                
+
                 for number in phone_numbers:
                     if number and number not in phone_set:  # Evitar duplicados
                         phone_set.add(number)
@@ -141,6 +143,7 @@ class SMSCampaign(models.Model):
                 existing_campaign.time = self.time
                 existing_campaign.contacts = [(6, 0, self.contacts.ids)]
                 existing_campaign.message = self.message
+                campaign = existing_campaign
             else:
                 campaign_to_create = {
                     "connection_id": self.connection_id.id,
@@ -158,18 +161,28 @@ class SMSCampaign(models.Model):
                 campaign = self.env["eoceansms.sms_campaign"].create(campaign_to_create)
 
             registers_to_create = []
-
+            phone_set = set()
             for contact in self.contacts:
-                register_values = {
-                    "id": contact.id,
-                    "register_id": contact.id,
-                    "name": contact.name,
-                    "phone": contact.x_studio_telefono_01,
-                    "message": self.message,
-                    "campaign_ids": [(4, existing_campaign.id)],
-                }
+                phone_numbers = [
+                    self._sanitize_phone_number(contact.phone),
+                    self._sanitize_phone_number(contact.mobile),
+                    self._sanitize_phone_number(contact.x_studio_telefono_01),
+                    self._sanitize_phone_number(contact.x_studio_telefono_02),
+                    self._sanitize_phone_number(contact.x_studio_telefono_03),
+                ]
 
-                registers_to_create.append(register_values)
+                for number in phone_numbers:
+                    if number and number not in phone_set:
+                        phone_set.add(number)
+                        register_values = {
+                            "id": contact.id,
+                            "register_id": contact.id,
+                            "name": contact.name,
+                            "phone": number,
+                            "message": self.message,
+                            "campaign_ids": [(4, campaign.id)],
+                        }
+                        registers_to_create.append(register_values)
 
             registers = self.env["eoceansms.sms_register"].create(registers_to_create)
 
@@ -221,32 +234,29 @@ class SMSCampaign(models.Model):
                     for record_data in sms_register_data:
                         record_external_id = record_data.get("external_id")
                         # _logger.info("record_external_id: %s", record_external_id)
-                        if str(record_external_id) == str(sms_register.register_id):
-                            status_value = record_data.get("estado")
-                            get_fecha_envio = record_data.get("fecha envio")
-                            get_fecha_entrega = record_data.get("fecha entrega")
-                            if str(status_value) in dict(
-                                sms_register._fields["status"].selection
-                            ):
-                                sms_register.status = str(status_value)
-                                fecha_envio = record_data.get("fecha envio")
-                                sms_register.fecha_envio = (
-                                    fields.Datetime.to_datetime(fecha_envio)
-                                    if fecha_envio
-                                    else False
-                                )
-
-                                fecha_entrega = record_data.get("fecha entrega")
-                                sms_register.fecha_entrega = (
-                                    fields.Datetime.to_datetime(fecha_entrega)
-                                    if fecha_entrega
-                                    else False
-                                )
-
-                            else:
-                                raise UserError(
-                                    f"Error al obtener el estado del registro: {record_data}"
-                                )
+                        status_value = record_data.get("estado")
+                        get_fecha_envio = record_data.get("fecha envio")
+                        get_fecha_entrega = record_data.get("fecha entrega")
+                        if str(status_value) in dict(
+                            sms_register._fields["status"].selection
+                        ):
+                            sms_register.status = str(status_value)
+                            fecha_envio = record_data.get("fecha envio")
+                            sms_register.fecha_envio = (
+                                fields.Datetime.to_datetime(fecha_envio)
+                                if fecha_envio
+                                else False
+                            )
+                            fecha_entrega = record_data.get("fecha entrega")
+                            sms_register.fecha_entrega = (
+                                fields.Datetime.to_datetime(fecha_entrega)
+                                if fecha_entrega
+                                else False
+                            )
+                        else:
+                            raise UserError(
+                                f"Error al obtener el estado del registro: {record_data}"
+                            )
             else:
                 raise UserError(
                     f"Error al obtener el estado de la campaña: {response.text}"
