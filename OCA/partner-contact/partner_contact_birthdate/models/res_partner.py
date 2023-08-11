@@ -15,6 +15,9 @@ class ResPartner(models.Model):
 
     birthdate_date = fields.Date("Birthdate")
     age = fields.Integer(readonly=True, compute="_compute_age")
+    birth_month = fields.Char(
+        string="Mes de Nacimiento", compute="_compute_birth_month", store=True
+    )
 
     @api.depends("birthdate_date")
     def _compute_age(self):
@@ -23,3 +26,26 @@ class ResPartner(models.Model):
             if record.birthdate_date:
                 age = relativedelta(fields.Date.today(), record.birthdate_date).years
             record.age = age
+
+    @api.depends("birthdate_date")
+    def _compute_birth_month(self):
+        for record in self:
+            if record.birthdate_date:
+                months_es = [
+                    "Enero",
+                    "Febrero",
+                    "Marzo",
+                    "Abril",
+                    "Mayo",
+                    "Junio",
+                    "Julio",
+                    "Agosto",
+                    "Septiembre",
+                    "Octubre",
+                    "Noviembre",
+                    "Diciembre",
+                ]
+                birth_month = months_es[record.birthdate_date.month - 1]
+                record.birth_month = birth_month
+            else:
+                record.birth_month = ""

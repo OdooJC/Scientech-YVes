@@ -145,13 +145,17 @@
                                 <label for="contacts" class="col-sm-2 col-form-label">Seleccione los
                                     contactos</label>
                                 <div class="col-sm-10">
-                                    <field id="contacts" name="contacts" widget="many2many_tags"
+                                    <field id="contacts" name="contacts" widget="many2many"
                                         string="Contactos"
-                                        options="{}" class="form-control">
+                                        options="{'no_create': True}"
+                                        class="form-control">
                                         <tree>
-                                            <field name="name" string="Nombre" select="1"
-                                            />
+                                            <field name="name" string="Nombre" />
                                             <field name="phone" string="Teléfono" />
+                                            <field name="mobile" string="Móvil" />
+                                            <field name="x_studio_telefono_01" string="Teléfono 01" />
+                                            <field name="x_studio_telefono_02" string="Teléfono 02" />
+                                            <field name="x_studio_telefono_03" string="Teléfono 03" />
                                         </tree>
                                     </field>
                                 </div>
@@ -232,7 +236,7 @@
                     <field name="fecha_envio" string="Fecha de Envío" />
                     <field name="fecha_entrega" string="Fecha de Entrega" />
                     <field name="campaign_ids" invisible="1" />
-                    <field name="campaign_ids" string="Campañas" widget="many2many_tags" />
+                    <!-- <field name="campaign_ids" string="Campañas" widget="many2many_tags" /> -->
                 </tree>
             </field>
         </record>
