@@ -34,7 +34,7 @@ msgstr "Fecha de nacimiento"
 #. module: partner_contact_birthdate
 #: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_partner__birth_month
 #: model:ir.model.fields,field_description:partner_contact_birthdate.field_res_users__birth_month
-msgid "Mes de nacimiento""
+msgid "Mes de nacimiento"
 msgstr "Mes de nacimiento"
 
 #. module: partner_contact_birthdate
