@@ -157,23 +157,50 @@ class SMSCampaign(models.Model):
                     "message": self.message,
                 }
 
-                campaign = self.env["eoceansms.sms_campaign"].create(campaign_to_create)
+                existing_campaign = self.env["eoceansms.sms_campaign"].create(campaign_to_create)
 
             registers_to_create = []
+            if self.contacts:
+                phone_set = set()  # Conjunto para rastrear números de teléfono únicos
+                for contact in self.contacts:
+                    phone_numbers = [
+                        self._sanitize_phone_number(contact.phone),
+                        self._sanitize_phone_number(contact.mobile),
+                        self._sanitize_phone_number(contact.x_studio_telefono_01),
+                        self._sanitize_phone_number(contact.x_studio_telefono_02),
+                        self._sanitize_phone_number(contact.x_studio_telefono_03),
+                    ]
 
-            for contact in self.contacts:
-                register_values = {
-                    "id": contact.id,
-                    "register_id": contact.id,
-                    "name": contact.name,
-                    "phone": contact.x_studio_telefono_01,
-                    "message": self.message,
-                    "campaign_ids": [(4, existing_campaign.id)],
-                }
+                    for number in phone_numbers:
+                        if number and number not in phone_set:  # Evitar duplicados
+                            register_values = {
+                                "id": contact.id,
+                                "register_id": contact.id,
+                                "name": contact.name,
+                                "phone": number,
+                                "message": self.message,
+                                "campaign_ids": [(4, existing_campaign.id)],
+                            }
 
-                registers_to_create.append(register_values)
+                            registers_to_create.append(register_values)
+                registers = self.env["eoceansms.sms_register"].create(
+                    registers_to_create
+                )
+            # registers_to_create = []
 
-            registers = self.env["eoceansms.sms_register"].create(registers_to_create)
+            # for contact in self.contacts:
+            #     register_values = {
+            #         "id": contact.id,
+            #         "register_id": contact.id,
+            #         "name": contact.name,
+            #         "phone": contact.x_studio_telefono_01,
+            #         "message": self.message,
+            #         "campaign_ids": [(4, existing_campaign.id)],
+            #     }
+
+            #     registers_to_create.append(register_values)
+
+            # registers = self.env["eoceansms.sms_register"].create(registers_to_create)
 
             return self.env.ref("eocean_apisms.sms_campaign_action_tree").read()[0]
         else:
