@@ -59,7 +59,7 @@ class SMSCampaign(models.Model):
         if number:
             # Eliminar "+" y "56", y luego eliminar espacios en blanco
             sanitized_number = (
-                number.replace("+", "").replace("56", "").replace(" ", "")
+                number.replace("+56", "").replace(" ", "")
             )
             if len(sanitized_number) >= 9:
                 return sanitized_number[-9:]
@@ -161,7 +161,7 @@ class SMSCampaign(models.Model):
 
             registers_to_create = []
             if self.contacts:
-                phone_set = set()  # Conjunto para rastrear números de teléfono únicos
+                phone__set = set()  # Conjunto para rastrear números de teléfono únicos
                 for contact in self.contacts:
                     phone_numbers = [
                         self._sanitize_phone_number(contact.phone),
@@ -172,7 +172,7 @@ class SMSCampaign(models.Model):
                     ]
 
                     for number in phone_numbers:
-                        if number and number not in phone_set:  # Evitar duplicados
+                        if number and number not in phone__set:  # Evitar duplicados
                             register_values = {
                                 "id": contact.id,
                                 "register_id": contact.id,
