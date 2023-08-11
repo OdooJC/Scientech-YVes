@@ -152,6 +152,10 @@
                                         <tree>
                                             <field name="name" string="Nombre" />
                                             <field name="phone" string="Teléfono" />
+                                            <field name="mobile" string="Móvil" />
+                                            <field name="x_studio_telefono_01" string="Teléfono 01" />
+                                            <field name="x_studio_telefono_02" string="Teléfono 02" />
+                                            <field name="x_studio_telefono_03" string="Teléfono 03" />
                                         </tree>
                                     </field>
                                 </div>
