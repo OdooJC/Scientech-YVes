@@ -57,10 +57,8 @@ class SMSCampaign(models.Model):
 
     def _sanitize_phone_number(self, number):
         if number:
-            # Eliminar "+" y "56", y luego eliminar espacios en blanco
-            sanitized_number = (
-                number.replace("+56", "").replace(" ", "")
-            )
+            # Eliminar "+56" y luego eliminar espacios en blanco
+            sanitized_number = number.replace("+56", "").replace(" ", "")
             if len(sanitized_number) >= 9:
                 return sanitized_number[-9:]
         return False
@@ -157,11 +155,13 @@ class SMSCampaign(models.Model):
                     "message": self.message,
                 }
 
-                existing_campaign = self.env["eoceansms.sms_campaign"].create(campaign_to_create)
+                existing_campaign = self.env["eoceansms.sms_campaign"].create(
+                    campaign_to_create
+                )
 
             registers_to_create = []
             if self.contacts:
-                phone__set = set()  # Conjunto para rastrear números de teléfono únicos
+                phone_set_1 = set()  # Conjunto para rastrear números de teléfono únicos
                 for contact in self.contacts:
                     phone_numbers = [
                         self._sanitize_phone_number(contact.phone),
@@ -172,7 +172,7 @@ class SMSCampaign(models.Model):
                     ]
 
                     for number in phone_numbers:
-                        if number and number not in phone__set:  # Evitar duplicados
+                        if number and number not in phone_set_1:  # Evitar duplicados
                             register_values = {
                                 "id": contact.id,
                                 "register_id": contact.id,
@@ -186,21 +186,6 @@ class SMSCampaign(models.Model):
                 registers = self.env["eoceansms.sms_register"].create(
                     registers_to_create
                 )
-            # registers_to_create = []
-
-            # for contact in self.contacts:
-            #     register_values = {
-            #         "id": contact.id,
-            #         "register_id": contact.id,
-            #         "name": contact.name,
-            #         "phone": contact.x_studio_telefono_01,
-            #         "message": self.message,
-            #         "campaign_ids": [(4, existing_campaign.id)],
-            #     }
-
-            #     registers_to_create.append(register_values)
-
-            # registers = self.env["eoceansms.sms_register"].create(registers_to_create)
 
             return self.env.ref("eocean_apisms.sms_campaign_action_tree").read()[0]
         else:
@@ -241,23 +226,26 @@ class SMSCampaign(models.Model):
                 sms_registers = self.env["eoceansms.sms_register"].search(
                     [("campaign_ids", "=", campaign.id)]
                 )
+
+                campaign_data = response_data.get("campaign", [])
+
+                if campaign_data:
+                    sms_register_data = campaign_data[0].get("sms_records", [])
+                else:
+                    sms_register_data = []
+
                 for sms_register in sms_registers:
-                    campaign_data = response_data.get("campaign", [])
-                    if campaign_data:
-                        sms_register_data = campaign_data[0].get("sms_records", [])
-                    else:
-                        sms_register_data = []
                     for record_data in sms_register_data:
-                        record_external_id = record_data.get("external_id")
+                        record_external_id = record_data.get("id")
+                        record_phone = record_data.get("fono")
                         # _logger.info("record_external_id: %s", record_external_id)
-                        if str(record_external_id) == str(sms_register.register_id):
+                        if str(record_phone) == str(sms_register.phone):
                             status_value = record_data.get("estado")
-                            get_fecha_envio = record_data.get("fecha envio")
-                            get_fecha_entrega = record_data.get("fecha entrega")
                             if str(status_value) in dict(
                                 sms_register._fields["status"].selection
                             ):
                                 sms_register.status = str(status_value)
+                                sms_register.register_id = record_external_id
                                 fecha_envio = record_data.get("fecha envio")
                                 sms_register.fecha_envio = (
                                     fields.Datetime.to_datetime(fecha_envio)
