@@ -232,31 +232,32 @@ class SMSCampaign(models.Model):
                     else:
                         sms_register_data = []
                     for record_data in sms_register_data:
-                        record_external_id = record_data.get("external_id")
+                        # record_external_id = record_data.get("external_id")
                         # _logger.info("record_external_id: %s", record_external_id)
-                        status_value = record_data.get("estado")
-                        get_fecha_envio = record_data.get("fecha envio")
-                        get_fecha_entrega = record_data.get("fecha entrega")
-                        if str(status_value) in dict(
-                            sms_register._fields["status"].selection
-                        ):
-                            sms_register.status = str(status_value)
-                            fecha_envio = record_data.get("fecha envio")
-                            sms_register.fecha_envio = (
-                                fields.Datetime.to_datetime(fecha_envio)
-                                if fecha_envio
-                                else False
-                            )
-                            fecha_entrega = record_data.get("fecha entrega")
-                            sms_register.fecha_entrega = (
-                                fields.Datetime.to_datetime(fecha_entrega)
-                                if fecha_entrega
-                                else False
-                            )
-                        else:
-                            raise UserError(
-                                f"Error al obtener el estado del registro: {record_data}"
-                            )
+                        if str(campaign.id) == str(sms_register.campaign_id):
+                            status_value = record_data.get("estado")
+                            if str(status_value) in dict(
+                                sms_register._fields["status"].selection
+                            ):
+                                sms_register.status = str(status_value)
+                                fecha_envio = record_data.get("fecha envio")
+                                sms_register.fecha_envio = (
+                                    fields.Datetime.to_datetime(fecha_envio)
+                                    if fecha_envio
+                                    else False
+                                )
+
+                                fecha_entrega = record_data.get("fecha entrega")
+                                sms_register.fecha_entrega = (
+                                    fields.Datetime.to_datetime(fecha_entrega)
+                                    if fecha_entrega
+                                    else False
+                                )
+
+                            else:
+                                raise UserError(
+                                    f"Error al obtener el estado del registro: {record_data}"
+                                )
             else:
                 raise UserError(
                     f"Error al obtener el estado de la campaña: {response.text}"
