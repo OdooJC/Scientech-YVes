@@ -196,8 +196,7 @@
                     <field name="connection_id" string="Conexión" select="1" />
                     <field name="status" string="Estado" select="1" />
                     <button name="action_view_report" string="Ver Reporte" type="object" />
-                    <button string="Ver Registros" type="object"
-                        name="action_view_registers" />
+                    <button name="action_view_registers" string="Ver Registros" type="object" />
                 </tree>
             </field>
         </record>
@@ -268,6 +267,7 @@
                 </tree>
             </field>
         </record>
+
 
         <!-- Acciones para Reporte de Campañas SMS -->
         <record model="ir.actions.act_window" id="sms_campaign_report_action_tree">
