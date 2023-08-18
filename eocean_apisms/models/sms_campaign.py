@@ -73,47 +73,37 @@ class SMSCampaign(models.Model):
     @api.depends("sms_register_ids.status")
     def _compute_total_registers(self):
         for campaign in self:
-            campaign.total_registers_descartado = (
-                campaign.sms_register_ids.filtered(lambda r: r.status == "1")
-                .sudo()
-                .mapped("id")
+            discarded = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "1"
             )
-
-            campaign.total_registers_pendiente = (
-                campaign.sms_register_ids.filtered(lambda r: r.status == "2")
-                .sudo()
-                .mapped("id")
+            pending = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "2"
             )
-
-            campaign.total_registers_ejecutado = (
-                campaign.sms_register_ids.filtered(lambda r: r.status == "3")
-                .sudo()
-                .mapped("id")
+            executed = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "3"
             )
-
-            campaign.total_registers_recibido = (
-                campaign.sms_register_ids.filtered(lambda r: r.status == "4")
-                .sudo()
-                .mapped("id")
+            received = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "4"
             )
-
-            campaign.total_registers_contestado = (
-                campaign.sms_register_ids.filtered(lambda r: r.status == "5")
-                .sudo()
-                .mapped("id")
+            
+            answered = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "5"
             )
-
-            campaign.total_registers_norecibido = (
-                campaign.sms_register_ids.filtered(lambda r: r.status == "6")
-                .sudo()
-                .mapped("id")
+            
+            no_received = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "6"
             )
-
-            campaign.total_registers_cerrado = (
-                campaign.sms_register_ids.filtered(lambda r: r.status == "7")
-                .sudo()
-                .mapped("id")
+            closed = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "7"
             )
+            
+            campaign.total_registers_descartado = len(discarded)
+            campaign.total_registers_pendiente = len(pending)
+            campaign.total_registers_ejecutado = len(executed)
+            campaign.total_registers_recibido = len(received)
+            campaign.total_registers_contestado = len(answered)
+            campaign.total_registers_norecibido = len(no_received)
+            campaign.total_registers_cerrado = len(closed)
 
     @api.onchange("datetime")
     def _onchange_datetime(self):
