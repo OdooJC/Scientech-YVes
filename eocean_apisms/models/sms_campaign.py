@@ -42,6 +42,69 @@ class SMSCampaign(models.Model):
         domain=[("phone", "!=", False)],
     )
 
+    sms_register_ids = fields.One2many(
+        "eoceansms.sms_register",
+        "campaign_ids",
+        string="Registros de Campaña",
+    )
+
+    total_registers_descartado = fields.Integer(
+        string="Descartados", compute="_compute_total_registers"
+    )
+    total_registers_pendiente = fields.Integer(
+        string="Pendientes", compute="_compute_total_registers"
+    )
+    total_registers_ejecutado = fields.Integer(
+        string="Ejecutados", compute="_compute_total_registers"
+    )
+    total_registers_recibido = fields.Integer(
+        string="Recibidos", compute="_compute_total_registers"
+    )
+    total_registers_contestado = fields.Integer(
+        string="Contestados", compute="_compute_total_contestados"
+    )
+    total_registers_norecibido = fields.Integer(
+        string="No Recibidos", compute="_compute_total_registers"
+    )
+    total_registers_cerrado = fields.Integer(
+        string="Cerrados", compute="_compute_total_registers"
+    )
+
+    @api.depends("sms_register_ids.status")
+    def _compute_total_registers(self):
+        for campaign in self:
+            discarded = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "1"
+            )
+            pending = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "2"
+            )
+            executed = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "3"
+            )
+            received = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "4"
+            )
+            
+            answered = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "5"
+            )
+            
+            no_received = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "6"
+            )
+            closed = campaign.sms_register_ids.filtered(
+                lambda r: r.status == "7"
+            )
+            
+            campaign.total_registers_descartado = len(discarded)
+            campaign.total_registers_pendiente = len(pending)
+            campaign.total_registers_ejecutado = len(executed)
+            campaign.total_registers_recibido = len(received)
+            campaign.total_registers_contestado = len(answered)
+            campaign.total_registers_norecibido = len(no_received)
+            campaign.total_registers_cerrado = len(closed)
+
     @api.onchange("datetime")
     def _onchange_datetime(self):
         if self.datetime:
@@ -276,4 +339,9 @@ class SMSCampaign(models.Model):
             "default_campaign_ids": [(6, 0, self.ids)],
             "search_default_campaign_ids": [self.id],
         }
+        return action
+
+    def action_view_report(self):
+        action = self.env.ref("eocean_apisms.sms_campaign_report_action_tree").read()[0]
+        action["domain"] = [("id", "in", self.ids)]
         return action
