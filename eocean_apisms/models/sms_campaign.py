@@ -74,37 +74,37 @@ class SMSCampaign(models.Model):
         for campaign in self:
             campaign.total_registers_descartado = len(
                 campaign.contacts.mapped("sms_register_ids").filtered(
-                    lambda r: r.status == "1"
+                    lambda c: c.sms_register_ids.status == "1"
                 )
             )
             campaign.total_registers_pendiente = len(
                 campaign.contacts.mapped("sms_register_ids").filtered(
-                    lambda r: r.status == "2"
+                    lambda c: c.sms_register_ids.status == "2"
                 )
             )
             campaign.total_registers_ejecutado = len(
                 campaign.contacts.mapped("sms_register_ids").filtered(
-                    lambda r: r.status == "3"
+                    lambda c: c.sms_register_ids.status == "3"
                 )
             )
             campaign.total_registers_recibido = len(
                 campaign.contacts.mapped("sms_register_ids").filtered(
-                    lambda r: r.status == "4"
+                    lambda c: c.sms_register_ids.status == "4"
                 )
             )
             campaign.total_registers_contestado = len(
                 campaign.contacts.mapped("sms_register_ids").filtered(
-                    lambda r: r.status == "5"
+                    lambda c: c.sms_register_ids.status == "5"
                 )
             )
             campaign.total_registers_norecibido = len(
                 campaign.contacts.mapped("sms_register_ids").filtered(
-                    lambda r: r.status == "6"
+                    lambda c: c.sms_register_ids.status == "6"
                 )
             )
             campaign.total_registers_cerrado = len(
                 campaign.contacts.mapped("sms_register_ids").filtered(
-                    lambda r: r.status == "7"
+                    lambda c: c.sms_register_ids.status == "7"
                 )
             )
 
