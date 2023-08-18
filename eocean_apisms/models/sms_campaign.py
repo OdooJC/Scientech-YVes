@@ -47,7 +47,8 @@ class SMSCampaign(models.Model):
         "campaign_ids",
         string="Registros de Campaña",
     )
-
+    total_registers = fields.Integer(string="Total de Registros", compute="_compute_total_registers")
+    
     total_registers_descartado = fields.Integer(
         string="Descartados", compute="_compute_total_registers"
     )
@@ -69,6 +70,10 @@ class SMSCampaign(models.Model):
     total_registers_cerrado = fields.Integer(
         string="Cerrados", compute="_compute_total_registers"
     )
+    @api.depends("sms_register_ids")
+    def _compute_total_registers(self):
+        for campaign in self:
+            campaign.total_registers = len(campaign.sms_register_ids)
 
     @api.depends("sms_register_ids.status")
     def _compute_total_registers(self):

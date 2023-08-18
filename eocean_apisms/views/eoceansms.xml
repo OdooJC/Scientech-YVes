@@ -258,6 +258,7 @@
                 <tree string="Reporte de Campañas SMS">
                     <field name="name" string="Campaña" />
                     <field name="status" string="Estado" />
+                    <field name="total_registers" string="Total de Registros" />
                     <field name="total_registers_descartado" string="Descartados" />
                     <field name="total_registers_pendiente" string="Pendientes" />
                     <field name="total_registers_ejecutado" string="Ejecutados" />
