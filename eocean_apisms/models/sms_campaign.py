@@ -42,14 +42,6 @@ class SMSCampaign(models.Model):
         domain=[("phone", "!=", False)],
     )
     
-    campaign_ids = fields.Many2many(
-        "eoceansms.sms_campaign",
-        relation="eoceansms_sms_campaign_sms_register_rel",
-        column1="register_id",
-        column2="campaign_id",
-        string="Campañas",
-    )
-
     total_registers_descartado = fields.Integer(
         string="Descartados", compute="_compute_total_registers"
     )
@@ -62,12 +54,16 @@ class SMSCampaign(models.Model):
     total_registers_recibido = fields.Integer(
         string="Recibidos", compute="_compute_total_registers"
     )
+    total_registers_contestado = fields.Integer(
+        string="Contestados", compute="_compute_total_contestados"
+    )
     total_registers_norecibido = fields.Integer(
         string="No Recibidos", compute="_compute_total_registers"
     )
     total_registers_cerrado = fields.Integer(
         string="Cerrados", compute="_compute_total_registers"
     )
+    
 
     def _compute_total_registers(self):
         for campaign in self:
@@ -82,6 +78,9 @@ class SMSCampaign(models.Model):
             )
             campaign.total_registers_recibido = campaign.contacts.filtered(
                 lambda c: c.sms_register_ids.status == "4"
+            )
+            campaign.total_registers_contestado = campaign.contacts.filtered(
+                lambda c: c.sms_register_ids.status == "5"
             )
             campaign.total_registers_norecibido = campaign.contacts.filtered(
                 lambda c: c.sms_register_ids.status == "6"
@@ -328,9 +327,5 @@ class SMSCampaign(models.Model):
 
     def action_view_report(self):
         action = self.env.ref("eocean_apisms.sms_campaign_report_action_tree").read()[0]
-        action["domain"] = [("campaign_ids", "in", self.ids)]
-        action["context"] = {
-            "default_campaign_ids": [(6, 0, self.ids)],
-            "search_default_campaign_ids": [self.id],
-        }
+        action["domain"] = [("id", "in", self.ids)]
         return action
