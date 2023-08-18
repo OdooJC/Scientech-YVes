@@ -41,6 +41,12 @@ class SMSCampaign(models.Model):
         column2="contact_id",
         domain=[("phone", "!=", False)],
     )
+    
+    sms_register_ids = fields.One2many(
+        "eoceansms.sms_register",
+        "campaign_ids",
+        string="Registros de Campaña",
+    )
 
     total_registers_descartado = fields.Integer(
         string="Descartados", compute="_compute_total_registers"
