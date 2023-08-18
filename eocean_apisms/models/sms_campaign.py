@@ -73,37 +73,37 @@ class SMSCampaign(models.Model):
     def _compute_total_registers(self):
         for campaign in self:
             campaign.total_registers_descartado = len(
-                campaign.campaign_ids.mapped("sms_register_ids").filtered(
+                campaign.contacts.mapped("sms_register_ids").filtered(
                     lambda r: r.status == "1"
                 )
             )
             campaign.total_registers_pendiente = len(
-                campaign.campaign_ids.mapped("sms_register_ids").filtered(
+                campaign.contacts.mapped("sms_register_ids").filtered(
                     lambda r: r.status == "2"
                 )
             )
             campaign.total_registers_ejecutado = len(
-                campaign.campaign_ids.mapped("sms_register_ids").filtered(
+                campaign.contacts.mapped("sms_register_ids").filtered(
                     lambda r: r.status == "3"
                 )
             )
             campaign.total_registers_recibido = len(
-                campaign.campaign_ids.mapped("sms_register_ids").filtered(
+                campaign.contacts.mapped("sms_register_ids").filtered(
                     lambda r: r.status == "4"
                 )
             )
             campaign.total_registers_contestado = len(
-                campaign.campaign_ids.mapped("sms_register_ids").filtered(
+                campaign.contacts.mapped("sms_register_ids").filtered(
                     lambda r: r.status == "5"
                 )
             )
             campaign.total_registers_norecibido = len(
-                campaign.campaign_ids.mapped("sms_register_ids").filtered(
+                campaign.contacts.mapped("sms_register_ids").filtered(
                     lambda r: r.status == "6"
                 )
             )
             campaign.total_registers_cerrado = len(
-                campaign.campaign_ids.mapped("sms_register_ids").filtered(
+                campaign.contacts.mapped("sms_register_ids").filtered(
                     lambda r: r.status == "7"
                 )
             )
