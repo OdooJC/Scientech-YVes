@@ -42,6 +42,46 @@ class SMSCampaign(models.Model):
         domain=[("phone", "!=", False)],
     )
 
+    total_registers_descartado = fields.Integer(
+        string="Descartados", compute="_compute_total_registers"
+    )
+    total_registers_pendiente = fields.Integer(
+        string="Pendientes", compute="_compute_total_registers"
+    )
+    total_registers_ejecutado = fields.Integer(
+        string="Ejecutados", compute="_compute_total_registers"
+    )
+    total_registers_recibido = fields.Integer(
+        string="Recibidos", compute="_compute_total_registers"
+    )
+    total_registers_norecibido = fields.Integer(
+        string="No Recibidos", compute="_compute_total_registers"
+    )
+    total_registers_cerrado = fields.Integer(
+        string="Cerrados", compute="_compute_total_registers"
+    )
+
+    def _compute_total_registers(self):
+        for campaign in self:
+            campaign.total_registers_descartado = campaign.contacts.filtered(
+                lambda c: c.sms_register_ids.status == "1"
+            )
+            campaign.total_registers_pendiente = campaign.contacts.filtered(
+                lambda c: c.sms_register_ids.status == "2"
+            )
+            campaign.total_registers_ejecutado = campaign.contacts.filtered(
+                lambda c: c.sms_register_ids.status == "3"
+            )
+            campaign.total_registers_recibido = campaign.contacts.filtered(
+                lambda c: c.sms_register_ids.status == "4"
+            )
+            campaign.total_registers_norecibido = campaign.contacts.filtered(
+                lambda c: c.sms_register_ids.status == "6"
+            )
+            campaign.total_registers_cerrado = campaign.contacts.filtered(
+                lambda c: c.sms_register_ids.status == "7"
+            )
+
     @api.onchange("datetime")
     def _onchange_datetime(self):
         if self.datetime:
@@ -276,4 +316,9 @@ class SMSCampaign(models.Model):
             "default_campaign_ids": [(6, 0, self.ids)],
             "search_default_campaign_ids": [self.id],
         }
+        return action
+
+    def action_view_report(self):
+        action = self.env.ref("eocean_apisms.sms_campaign_report_view").read()[0]
+        action["domain"] = [("campaign_ids", "in", self.ids)]
         return action

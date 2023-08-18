@@ -195,6 +195,7 @@
                     <field name="name" string="Campaña" select="1" />
                     <field name="connection_id" string="Conexión" select="1" />
                     <field name="status" string="Estado" select="1" />
+                    <button name="action_view_report" string="Ver Reporte" type="object" />
                     <button string="Ver Registros" type="object"
                         name="action_view_registers" />
                 </tree>
@@ -250,6 +251,23 @@
             <field name="view_id" ref="sms_register_tree_view" />
         </record>
 
+        <!-- Reporte de Campañas SMS -->
+        <record model="ir.ui.view" id="sms_campaign_report_view">
+            <field name="name">eoceansms.sms_campaign.report</field>
+            <field name="model">eoceansms.sms_campaign</field>
+            <field name="arch" type="xml">
+                <tree string="Reporte de Campañas SMS">
+                    <field name="name" string="Campaña" />
+                    <field name="status" string="Estado" />
+                    <field name="total_registers_descartado" string="Descartados" />
+                    <field name="total_registers_pendiente" string="Pendientes" />
+                    <field name="total_registers_ejecutado" string="Ejecutados" />
+                    <field name="total_registers_recibido" string="Recibidos" />
+                    <field name="total_registers_norecibido" string="No Recibidos" />
+                    <field name="total_registers_cerrado" string="Cerrados" />
+                </tree>
+            </field>
+        </record>
 
         <!-- MENUS -->
         <menuitem name="EOcean - Touch" id="menu_eocean" sequence="10"
@@ -264,7 +282,6 @@
         <menuitem name="📣 Campañas SMS" id="menu_sms_campaign" parent="menu_eocean"
             action="sms_campaign_action_tree"
             sequence="2" />
-
 
     </data>
 </odoo>
