@@ -269,6 +269,14 @@
             </field>
         </record>
 
+        <!-- Acciones para Reporte de Campañas SMS -->
+        <record model="ir.actions.act_window" id="sms_campaign_report_action_tree">
+            <field name="name">Reporte de Campañas SMS</field>
+            <field name="res_model">eoceansms.sms_campaign</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sms_campaign_report_view" />
+        </record>
+
         <!-- MENUS -->
         <menuitem name="EOcean - Touch" id="menu_eocean" sequence="10"
             groups="base.group_user"
