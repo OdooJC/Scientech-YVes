@@ -33,18 +33,18 @@ class SMSCampaign(models.Model):
     date = fields.Char(string="Fecha", store=True, readonly=True)
     time = fields.Char(string="Hora", store=True, readonly=True)
 
-    # contacts = fields.Many2many(
-    #     "res.partner",
-    #     string="Contactos",
-    #     relation="eoceansms_sms_campaign_contacts_rel",
-    #     column1="campaign_id",
-    #     column2="contact_id",
-    #     domain=[("phone", "!=", False)],
-    # )
+    contacts = fields.Many2many(
+        "res.partner",
+        string="Contactos",
+        relation="eoceansms_sms_campaign_contacts_rel",
+        column1="campaign_id",
+        column2="contact_id",
+        domain=[("phone", "!=", False)],
+    )
 
     sms_register_ids = fields.One2many(
         "eoceansms.sms_register",
-        "campaign_ids",
+        "campaign_id",
         string="Registros de Campaña",
     )
     total_registers = fields.Integer(
@@ -233,7 +233,7 @@ class SMSCampaign(models.Model):
                                 "name": contact.name,
                                 "phone": number,
                                 "message": self.message,
-                                "campaign_ids": [(4, existing_campaign.id)],
+                                "campaign_id": existing_campaign.id,
                             }
 
                             registers_to_create.append(register_values)
@@ -278,7 +278,7 @@ class SMSCampaign(models.Model):
                 campaign.status = campaign_status
 
                 sms_registers = self.env["eoceansms.sms_register"].search(
-                    [("campaign_ids", "=", campaign.id)]
+                    [("campaign_id", "=", campaign.id)]
                 )
 
                 campaign_data = response_data.get("campaign", [])
