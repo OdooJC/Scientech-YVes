@@ -278,7 +278,7 @@ class SMSCampaign(models.Model):
                 campaign.status = campaign_status
 
                 sms_registers = self.env["eoceansms.sms_register"].search(
-                    [("campaign_id", "=", campaign.id)]
+                    [("campaign_id", "=", campaign_id)]
                 )
 
                 campaign_data = response_data.get("campaign", [])
