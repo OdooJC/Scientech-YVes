@@ -233,7 +233,7 @@ class SMSCampaign(models.Model):
                                 "name": contact.name,
                                 "phone": number,
                                 "message": self.message,
-                                "campaign_id": existing_campaign.id,
+                                "campaign_id": existing_campaign.campaign_id,
                             }
 
                             registers_to_create.append(register_values)
