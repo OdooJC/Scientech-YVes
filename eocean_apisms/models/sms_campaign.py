@@ -258,7 +258,7 @@ class SMSCampaign(models.Model):
         headers = {"Authorization": f"Bearer {connection.access_token}"}
 
         campaigns = self.env["eoceansms.sms_campaign"].search([])
-
+        _logger.info(campaigns)
         if not campaigns:
             raise UserError("No se encontraron campañas para actualizar el estado.")
 
@@ -266,11 +266,12 @@ class SMSCampaign(models.Model):
             campaign_id = campaign.campaign_id
             if not campaign_id:
                 raise UserError("La campaña no tiene un ID asignado.")
-
+            _logger.info(campaign)
+            _logger.info(campaign_id)
             payload = {"id": campaign_id}
 
             response = requests.get(url, headers=headers, params=payload)
-            print(campaign)
+            
             if response.status_code == 200:
                 response_data = response.json()
                 campaign_status = response_data.get("status")
@@ -280,10 +281,9 @@ class SMSCampaign(models.Model):
                 sms_registers = self.env["eoceansms.sms_register"].search(
                     [("campaign_id", "=", campaign_id)]
                 )
-                
-                print(sms_registers)
+                _logger.info(sms_registers)
                 campaign_data = response_data.get("campaign", [])
-
+                _logger.info(campaign_data)
                 if campaign_data:
                     sms_register_data = campaign_data[0].get("sms_records", [])
                 else:
