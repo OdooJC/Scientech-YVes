@@ -33,14 +33,14 @@ class SMSCampaign(models.Model):
     date = fields.Char(string="Fecha", store=True, readonly=True)
     time = fields.Char(string="Hora", store=True, readonly=True)
 
-    contacts = fields.Many2many(
-        "res.partner",
-        string="Contactos",
-        relation="eoceansms_sms_campaign_contacts_rel",
-        column1="campaign_id",
-        column2="contact_id",
-        domain=[("phone", "!=", False)],
-    )
+    # contacts = fields.Many2many(
+    #     "res.partner",
+    #     string="Contactos",
+    #     relation="eoceansms_sms_campaign_contacts_rel",
+    #     column1="campaign_id",
+    #     column2="contact_id",
+    #     domain=[("phone", "!=", False)],
+    # )
 
     sms_register_ids = fields.One2many(
         "eoceansms.sms_register",
@@ -229,6 +229,7 @@ class SMSCampaign(models.Model):
                             register_values = {
                                 "id": contact.id,
                                 "register_id": contact.id,
+                                "socio_id": contact.x_studio_socio,
                                 "name": contact.name,
                                 "phone": number,
                                 "message": self.message,

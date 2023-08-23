@@ -229,6 +229,7 @@
             <field name="arch" type="xml">
                 <tree string="Listado de Registros">
                     <field name="id" string="ID" />
+                    <field name="socio_id" string="ID Socio" />
                     <field name="name" string="Nombre" />
                     <field name="phone" string="Teléfono" />
                     <field name="message" string="Mensaje" />
