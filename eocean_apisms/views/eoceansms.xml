@@ -150,7 +150,7 @@
                                         options="{'no_create': True}"
                                         class="form-control">
                                         <tree>
-                                            <field name="socio_id" string="ID Socio" />
+                                            <field name="x_studio_socio" string="ID Socio" />
                                             <field name="name" string="Nombre" />
                                             <field name="phone" string="Teléfono" />
                                             <field name="mobile" string="Móvil" />
