@@ -325,7 +325,7 @@ class SMSCampaign(models.Model):
 
     def action_view_registers(self):
         action = self.env.ref("eocean_apisms.sms_register_action_tree").read()[0]
-        action["domain"] = [("campaign_ids", "in", self.ids)]
+        action["domain"] = [("campaign_id", "in", self.ids)]
         action["context"] = {
             "default_campaign_ids": [(6, 0, self.ids)],
             "search_default_campaign_ids": [self.id],
