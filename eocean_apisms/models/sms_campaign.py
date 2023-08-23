@@ -44,7 +44,7 @@ class SMSCampaign(models.Model):
 
     sms_register_ids = fields.One2many(
         "eoceansms.sms_register",
-        "campaign_ids",
+        "campaign_id",
         string="Registros de Campaña",
     )
     total_registers = fields.Integer(
@@ -229,10 +229,11 @@ class SMSCampaign(models.Model):
                             register_values = {
                                 "id": contact.id,
                                 "register_id": contact.id,
+                                "socio_id": contact.x_studio_socio,
                                 "name": contact.name,
                                 "phone": number,
                                 "message": self.message,
-                                "campaign_ids": [(4, existing_campaign.id)],
+                                "campaign_id": existing_campaign.id,
                             }
 
                             registers_to_create.append(register_values)
@@ -257,7 +258,6 @@ class SMSCampaign(models.Model):
         headers = {"Authorization": f"Bearer {connection.access_token}"}
 
         campaigns = self.env["eoceansms.sms_campaign"].search([])
-
         if not campaigns:
             raise UserError("No se encontraron campañas para actualizar el estado.")
 
@@ -265,7 +265,6 @@ class SMSCampaign(models.Model):
             campaign_id = campaign.campaign_id
             if not campaign_id:
                 raise UserError("La campaña no tiene un ID asignado.")
-
             payload = {"id": campaign_id}
 
             response = requests.get(url, headers=headers, params=payload)
@@ -277,11 +276,9 @@ class SMSCampaign(models.Model):
                 campaign.status = campaign_status
 
                 sms_registers = self.env["eoceansms.sms_register"].search(
-                    [("campaign_ids", "=", campaign.id)]
+                    [("campaign_id", "=", campaign.id)]
                 )
-
                 campaign_data = response_data.get("campaign", [])
-
                 if campaign_data:
                     sms_register_data = campaign_data[0].get("sms_records", [])
                 else:
@@ -324,7 +321,7 @@ class SMSCampaign(models.Model):
 
     def action_view_registers(self):
         action = self.env.ref("eocean_apisms.sms_register_action_tree").read()[0]
-        action["domain"] = [("campaign_ids", "in", self.ids)]
+        action["domain"] = [("campaign_id", "in", self.ids)]
         action["context"] = {
             "default_campaign_ids": [(6, 0, self.ids)],
             "search_default_campaign_ids": [self.id],

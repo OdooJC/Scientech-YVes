@@ -6,20 +6,20 @@ class SMSRegister(models.Model):
     _name = "eoceansms.sms_register"
     _description = "Entel Touch Ocean SMS Register"
 
-    campaign_ids = fields.Many2many(
-        "eoceansms.sms_campaign",
-        relation="eoceansms_sms_campaign_sms_register_rel",
-        column1="register_id",
-        column2="campaign_id",
-        string="Campañas",
-    )
-
     register_id = fields.Char(string="ID Registro", invisible=True)
+
+    socio_id = fields.Char(string="ID Socio")
+
     contact_id = fields.Many2one(
         "res.partner",
         string="Contacto",
         domain=[("phone", "!=", False)],
         ondelete="restrict",
+    )
+
+    campaign_id = fields.Many2one(
+        "eoceansms.sms_campaign",
+        string="Campañas",
     )
 
     name = fields.Char(string="Nombre")
