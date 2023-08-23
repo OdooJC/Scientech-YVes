@@ -270,7 +270,7 @@ class SMSCampaign(models.Model):
             payload = {"id": campaign_id}
 
             response = requests.get(url, headers=headers, params=payload)
-
+            print(campaign)
             if response.status_code == 200:
                 response_data = response.json()
                 campaign_status = response_data.get("status")
@@ -280,7 +280,8 @@ class SMSCampaign(models.Model):
                 sms_registers = self.env["eoceansms.sms_register"].search(
                     [("campaign_id", "=", campaign_id)]
                 )
-
+                
+                print(sms_registers)
                 campaign_data = response_data.get("campaign", [])
 
                 if campaign_data:
