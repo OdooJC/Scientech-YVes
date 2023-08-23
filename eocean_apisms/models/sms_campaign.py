@@ -39,7 +39,6 @@ class SMSCampaign(models.Model):
         relation="eoceansms_sms_campaign_contacts_rel",
         column1="campaign_id",
         column2="contact_id",
-        domain=[("phone", "!=", False)],
     )
 
     sms_register_ids = fields.One2many(
