@@ -9,6 +9,8 @@ class SMSRegister(models.Model):
     campaign_ids = fields.Many2many(
         "eoceansms.sms_campaign",
         relation="eoceansms_sms_campaign_sms_register_rel",
+        column1="campaign_id",
+        column2="register_id",
         string="Campañas",
     )
 
