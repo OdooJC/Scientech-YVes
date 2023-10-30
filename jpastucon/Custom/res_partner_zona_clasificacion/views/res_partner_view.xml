@@ -1,25 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        
-        <!-- Agregar el campo x_studio_zona_clasificacion al modelo res.partner -->
-        <record id="field_x_studio_zona_clasificacion" model="ir.model.fields">
-            <field name="name">x_studio_zona_clasificacion</field>
-            <field name="model_id" ref="res_partner_extends"/>
-            <field name="field_description">Zona Clasificacion</field>
-            <field name="ttype">char</field>
-            <field name="required" eval="True"/>
-        </record>
-
-        <!-- En la vista personalizada res.partner.form.inherit, agregar el nuevo campo -->
-        <record id="view_res_partner_form_inherit" model="ir.ui.view">
-            <field name="name">res.partner.form.inherit</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
-                <field name="x_studio_zona_clasificacion" position="after">
-                    <field name="x_studio_zona_clasificacion" widget="char" string="Zona Clasificacion"/>
-                </field>
-            </field>
-        </record>
-    </data>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">view.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state_id']" position="after">
+                <field name="x_studio_zona_clasificacion"
+                    placeholder="Zona Clasificación" options="{'no_open': True, 'no_create': True}" />
+            </xpath>
+        </field>
+    </record>
 </odoo>
