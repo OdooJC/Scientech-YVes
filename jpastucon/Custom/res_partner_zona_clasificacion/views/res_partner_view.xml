@@ -6,6 +6,7 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='x_studio_zona_clasificacion']" position="attributes">
+                    <attribute name="attrs">{'readonly': True}</attribute>
                 </xpath>
             </field>
         </record>
