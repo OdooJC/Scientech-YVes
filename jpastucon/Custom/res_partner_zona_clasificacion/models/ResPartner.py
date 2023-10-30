@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 
-class ResPartnerExtension(models.Model):
+class ResPartner(models.Model):
     _inherit = "res.partner"
 
     zona_clasificacion = fields.Selection(
