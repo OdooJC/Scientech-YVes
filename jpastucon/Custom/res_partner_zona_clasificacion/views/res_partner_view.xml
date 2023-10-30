@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_partner_form_zona_clasificacion" model="ir.ui.view">
-        <field name="name">view.partner.form.zona.clasificacion</field>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">view.partner.form.inherit</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
-            <field name="x_studio_zona_clasificacion" position="after">
-                <div class="col-6">
-                    <field name="x_studio_zona_clasificacion"/>
-                </div>
-            </field>
+            <xpath expr="//field[@name='state_id']" position="after">
+                <field name="x_studio_zona_clasificacion"
+                    placeholder="Zona Clasificación" options="{'no_open': True, 'no_create': True}" />
+            </xpath>
         </field>
     </record>
 </odoo>
