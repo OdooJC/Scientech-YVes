@@ -1,11 +1,6 @@
 <odoo>
     <data>
-        <!-- Extender el modelo res.partner -->
-        <record id="res_partner_extends" model="ir.model">
-            <field name="name">res.partner</field>
-            <field name="model">res.partner</field>
-        </record>
-
+        
         <!-- Agregar el campo x_studio_zona_clasificacion al modelo res.partner -->
         <record id="field_x_studio_zona_clasificacion" model="ir.model.fields">
             <field name="name">x_studio_zona_clasificacion</field>
