@@ -1,13 +1,28 @@
 <odoo>
     <data>
+        <!-- Define the new field in the model (if not already defined) -->
+        <record id="model_res_partner_inherit" model="ir.model">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+        </record>
+
+        <record id="field_x_studio_zona_clasificacion" model="ir.model.fields">
+            <field name="name">x_studio_zona_clasificacion</field>
+            <field name="model_id" ref="model_res_partner_inherit"/>
+            <field name="field_description">Zona Clasificación</field>
+            <field name="ttype">char</field>
+            <field name="required" eval="True"/>
+        </record>
+
+        <!-- Inherit the view and add the new field -->
         <record id="view_res_partner_form_inherit" model="ir.ui.view">
             <field name="name">res.partner.form.inherit</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='x_studio_zona_clasificacion']" position="attributes">
-                    <attribute name="attrs">{'readonly': True}</attribute>
-                </xpath>
+                <field name="x_studio_zona_clasificacion" position="after">
+                    <field name="x_studio_zona_clasificacion" widget="char" string="Zona Clasificacion"/>
+                </field>
             </field>
         </record>
     </data>
