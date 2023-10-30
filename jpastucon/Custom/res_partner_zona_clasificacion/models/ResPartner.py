@@ -77,6 +77,7 @@ class ResPartner(models.Model):
                     "CL10200",
                     "CL10300",
                     "CL10400",
+                    "CL16000",
                 ]:
                     partner.zona_clasificacion = "zona_sur_1"
                 elif state_code in [
@@ -90,7 +91,9 @@ class ResPartner(models.Model):
                     "CL12200",
                     "CL12300",
                     "CL12400",
-                    "CL16000",
+                    "CL14000",
+                    "CL14100",
+                    "CL14200",
                 ]:
                     partner.zona_clasificacion = "zona_sur_2"
                 elif state_code in [
@@ -101,9 +104,6 @@ class ResPartner(models.Model):
                     "CL13400",
                     "CL13500",
                     "CL13600",
-                    "CL14000",
-                    "CL14100",
-                    "CL14200",
                 ]:
                     partner.zona_clasificacion = "zona_metropolitana"
                 else:
