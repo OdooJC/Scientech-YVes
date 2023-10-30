@@ -72,15 +72,15 @@ class ResPartner(models.Model):
                     "CL09000",
                     "CL09100",
                     "CL09200",
+                    "CL16000",
+                ]:
+                    partner.zona_clasificacion = "zona_sur_1"
+                elif state_code in [
                     "CL10000",
                     "CL10100",
                     "CL10200",
                     "CL10300",
                     "CL10400",
-                    "CL16000",
-                ]:
-                    partner.zona_clasificacion = "zona_sur_1"
-                elif state_code in [
                     "CL11000",
                     "CL11100",
                     "CL11200",
